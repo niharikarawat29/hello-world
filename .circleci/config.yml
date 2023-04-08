@@ -20,7 +20,7 @@ jobs:
            
  two:    
    docker: # it runs inside a docker image, the same as above.
-     - image: cimg/ruby: 3.0.2
+     - image: cimg/ruby:3.0.2
        auth:
          username: mydockerhub-user
          password: $DOCKERHUB PASSWORD # context / project UI env var reference
