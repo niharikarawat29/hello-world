@@ -2,7 +2,7 @@ version: 2.1
 jobs:
  one:
   docker:
-    - image: crimg/ruby:2.6.8
+    - image: cimg/ruby:2.6.8
       auth:
         username: mydockerhub user
         password: $DOCKERHUB_PASSWORD #context / project UI env-var reference
@@ -20,7 +20,7 @@ jobs:
    steps:
    - checkout
    - run: echo "A more familiar hi" # We run a similar echo command to above.
-   - run: sleep 25
+   - run: sleep 15
    
 workflows:
  version: 2
