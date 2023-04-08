@@ -18,14 +18,14 @@ jobs:
          username: mydockerhub-user
          password: $DOCKERHUB PASSWORD # context / project UI env var reference
    steps:
-   - checkout
-   - run: echo "A more familiar hi" # We run a similar echo command to above.
-   - run: sleep 15
+     - checkout
+     - run: echo "A more familiar hi" # We run a similar echo command to above.
+     - run: sleep 15
    
 workflows:
- version: 2
- one_and_two:
-   jobs:
-     - one
-     - two
+  version: 2
+  one_and_two:
+    jobs:
+      - one
+      - two
          
