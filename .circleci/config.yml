@@ -1,14 +1,31 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.7.0
 jobs:
-  build:
-    executor:
-      name: node/default
-      tag: '10.4'
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-      - run: npm run test
+ one:
+  docker:
+    - image: crimg/ruby:2.6.8
+      auth:
+        username: mydockerhub user
+        password: $DOCKERHUB_PASSWORD #context / project UI env-var reference
+   steps:
+     - checkout
+     - run: echo "A first hello" # This prints "A first hello" to stdout.
+     - run: sleep 25
+           
+ two:    
+   docker: # it runs inside a docker image, the same as above.
+     - image: cimg/ruby: 3.0.2
+       auth:
+         username: mydockerhub-user
+         password: $DOCKERHUB PASSWORD # context / project UI env var reference
+   steps:
+   - checkout
+   - run: echo "A more familiar hi" # We run a similar echo command to above.
+   - run: sleep 25
+   
+workflows:
+ version: 2
+ one_and_two:
+   jobs:
+     - one
+     - two
+         
